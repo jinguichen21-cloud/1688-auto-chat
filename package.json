@@ -1,0 +1,73 @@
+{
+  "name": "1688-auto-chat",
+  "version": "1.0.0",
+  "description": "1688 商家沟通自动化-自动获取现货/贴标/包装尺寸/重量信息并回写钉钉表格",
+  "author": "北野川",
+  "organization": "bug砖家",
+  "category": "电商工具",
+  "keywords": ["1688", "商家沟通", "自动化", "跨境电商", "选品", "旺旺", "钉钉表格"],
+  "license": "MIT",
+  "skill_type": "Skill-MCP",
+  "trigger": {
+    "type": "manual",
+    "description": "手动触发执行1688 商家沟通任务"
+  },
+  "inputs": [
+    {
+      "name": "base_id",
+      "type": "string",
+      "required": true,
+      "description": "钉钉 AI 表格 Base ID",
+      "default": "2Amq4vjg89lXamOySQwEan5yJ3kdP0wQ"
+    },
+    {
+      "name": "table_id",
+      "type": "string",
+      "required": true,
+      "description": "表格ID（1688 同款表）",
+      "default": "PVVCLN1"
+    },
+    {
+      "name": "link_field",
+      "type": "string",
+      "required": true,
+      "description": "商品链接字段 ID",
+      "default": "uZbKrdV"
+    },
+    {
+      "name": "result_field",
+      "type": "string",
+      "required": true,
+      "description": "沟通结果字段 ID",
+      "default": "hh1eXb2"
+    },
+    {
+      "name": "structured_field",
+      "type": "string",
+      "required": true,
+      "description": "结构化记录字段 ID",
+      "default": "O41WlpD"
+    },
+    {
+      "name": "max_concurrent",
+      "type": "integer",
+      "required": false,
+      "description": "最大并发聊天数",
+      "default": 3
+    },
+    {
+      "name": "timeout_minutes",
+      "type": "integer",
+      "required": false,
+      "description": "单会话超时时间（分钟）",
+      "default": 3
+    }
+  ],
+  "dependencies": {
+    "dingtalk-mcp": "^1.0.0",
+    "browser-automation": "^1.0.0"
+  },
+  "scripts": {
+    "test": "real-cli eval run 1688-auto-chat --testcases tests/testcases.json"
+  }
+}
